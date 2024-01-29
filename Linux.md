@@ -1,8 +1,11 @@
 # Linux | All linux codes in the learning process
 
-## Title 1. 
+## 1. General Codes
+
+### 1.1 Basic commands
 
 Open Terminal;  ctrl + alt + T
+
 ```
 reboot
 ```
@@ -15,9 +18,37 @@ poweroff
 reboot
 ```
 
-run a application via terminal;
+### 1.2 Update Ubuntu;
 
 ```
-Get-ComputerInfo
+sudo apt update
 ```
-![computer information](./images/week1-task3-screenshot5_1.png)
+```
+sudo apt upgrade
+```
+
+
+
+### 1.3 Applications via terminal;
+
+Download Google Chrome;
+```
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+```
+
+Install Google Chrome
+```
+sudo apt install ./google-chrome-stable_current_amd64.deb
+```
+
+Delete the installer file
+```
+rm google-chrome-stable_current_amd64.deb
+```
+
+Run Google Chrome
+
+```
+google-chrome
+```
+![images](./images/.png)
