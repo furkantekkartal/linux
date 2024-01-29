@@ -14,8 +14,9 @@ reboot
 poweroff
 ```
 
+username;
 ```
-
+whoami
 ```
 
 ### 1.2 Update Ubuntu;
