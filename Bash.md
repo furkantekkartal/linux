@@ -4,17 +4,14 @@
 
 ### 1.1 Basic commands
 
-Return username;
 ```
-whoami
+whoami (Return username)
+pwd (print working directory)
+clear (delete everything on screen)
+cd (Change directory)
+ls (list files in current dicrectory)
+ls --help (We can pass a --help option to any command)
+man ls (We can read its manual with man)
 ```
 
-list files in current dicrectory;
-```
-ls
-```
 
-print working directory;
-```
-pwd
-```
