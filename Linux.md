@@ -2,10 +2,11 @@
 
 ## 1. General Codes
 
-/bin  ; built-in programs
-/data  ; miscellaneous data files
-/Users  ; users’ personal directories
-/tmp  ; temporary files that don’t need to be stored long-term
+* / ; Root directory
+* /bin  ; built-in programs
+* /data  ; miscellaneous data files
+* /Users  ; users’ personal directories
+* /tmp  ; temporary files that don’t need to be stored long-term
 
 ### 1.1 Basic commands
 
