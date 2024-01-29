@@ -14,7 +14,7 @@ reboot
 poweroff
 ```
 
-username;
+Return username;
 ```
 whoami
 ```
