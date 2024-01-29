@@ -15,7 +15,7 @@ poweroff
 ```
 
 ```
-reboot
+
 ```
 
 ### 1.2 Update Ubuntu;
