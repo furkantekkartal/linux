@@ -2,16 +2,17 @@
 
 ## 1. General Codes
 
-### 1.1 Basic commands
+### Basic commands
 
 ```
 whoami (Return username)
 pwd (print working directory)
 clear (delete everything on screen)
+```
 
-cd (Change directory)
-help cd (use this grammar for others)
 
+### ls commands
+```
 ls (list files )
 ls -F (add file and directory names)
   / indicates directory
@@ -22,10 +23,14 @@ ls -l (long listing format)
 ls -t (time last changed)
 ls -r (reverse list)
 ls -a (show all, including hidden files)
-ls Desktop (list a subdirectory)
+ls Desktop (list a subdirectory if it exist)
 ls --help (We can pass a --help option to any command)
 man ls (We can read its manual with man)
+```
 
+### cd commands
+
+```
 cd Desktop (Change directory)
 cd Desktop/shell-lesson-data
 cd .. (go to one level up)
@@ -33,14 +38,19 @@ cd (go to home directory)
 cd /home/ftekkartal/Desktop/shell-lesson-data (absolute path)
 cd ~/Desktop/shell-lesson-data (~ means /home/ftekkartal)
 cd - (go to previous directory)
+```
 
-Tab completion;
+### Tab completion;
+```
   cd ~/Desktop/shell-lesson-data
   "ls nor" + press tab => "ls north-pacific-gyre/"
   double tab => list all items in that directory
   "ls north-pacific-gyre/g" + press tab => "ls north-pacific-gyre/goo"
   double tab => list all item begins with goo
+```
 
+### Create files and directories;
+```
 pwd => /home/ftekkartal/Desktop/shell-lesson-data/exercise-data/writing
   mkdir thesis (crete a new directory named "thesis" in this directory ~/Desktop/shell-lesson-data/exercise-data/writing)
   mkdir -p ../project/furkan ../project/tekkartal (crete 2 new directories named "furkan" and "tekkartal' in this directory ~/Desktop/shell-lesson-data/exercise-data/project)
@@ -51,7 +61,10 @@ cd thesis
 nano draft.txt (create a new text file)
 touch my_file.txt (generate a blank text file)
 rm my_file.txt (remove the file)
+```
 
+### move and copy;
+```
 mv thesis/draft.txt thesis/quotes.txt (The first argument tells mv what we’re ‘moving’, while the second is where it’s to go)
 
 pwd => ~/Desktop/shell-lesson-data/exercise-data/writing
@@ -67,6 +80,18 @@ An example of moving;
 
   cd ../
   ls -a furkan     => . .. 
+  ls -a tekkartal  => . .. a.txt b.txt
+
+An example of copying;
+  pwd => ~/Desktop/shell-lesson-data/exercise-data/writing
+  ls -a furkan     => . .. 
+  ls -a tekkartal  => . .. a.txt b.txt
+
+  cd tekkartal
+  cp a.txt ../furkan
+
+  cd ../
+  ls -a furkan     => . .. a.txt
   ls -a tekkartal  => . .. a.txt b.txt
 
 ```
