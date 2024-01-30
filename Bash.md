@@ -4,6 +4,11 @@
 
 ### Basic commands
 
+"*" is joker character zero or more character
+"?" is joker character only 1 character
+Control key may be described in many ways, including Ctrl-X, Control-X, and ^X.
+The shell does not have a trash bin: once something is deleted, 
+
 ```
 whoami (Return username)
 pwd (print working directory)
@@ -49,7 +54,12 @@ cd - (go to previous directory)
   double tab => list all item begins with goo
 ```
 
-### Create files and directories;
+### Create and delete files and directories;
+mkdir [path] creates a new directory.
+mkdir -p [path]  creates any intermediate subdirectories as required.
+rm [path] removes (deletes) a file.
+rm -r [path] removes (deletes) a directory.
+
 ```
 pwd => /home/ftekkartal/Desktop/shell-lesson-data/exercise-data/writing
   mkdir thesis (crete a new directory named "thesis" in this directory ~/Desktop/shell-lesson-data/exercise-data/writing)
@@ -60,10 +70,19 @@ pwd => /home/ftekkartal/Desktop/shell-lesson-data/exercise-data/writing
 cd thesis
 nano draft.txt (create a new text file)
 touch my_file.txt (generate a blank text file)
-rm my_file.txt (remove the file)
+
+
+rm my_file.txt (remove the file without asking)
+rm -i my_file.txt (remove the file with asking)
+rm -r -i thesis (remove the directory)
+
 ```
 
 ### Move and copy;
+
+*mv [old] [new] moves (renames) a file or directory.
+*cp [old] [new] copies a file.
+
 ```
 mv thesis/draft.txt thesis/quotes.txt (The first argument tells mv what we’re ‘moving’, while the second is where it’s to go)
 
@@ -82,6 +101,7 @@ An example of moving;
   ls -a furkan     => . .. 
   ls -a tekkartal  => . .. a.txt b.txt
 
+
 An example of copying;
   pwd => ~/Desktop/shell-lesson-data/exercise-data/writing
   ls -a furkan     => . .. 
@@ -98,5 +118,13 @@ pwd => ~/Desktop/shell-lesson-data/exercise-data/writing
 cp quotes.txt thesis/quotations.txt (copy a single file)
 cp -r thesis thesis_backup (copy all content)
 
+* cp needs directory name as the last argument.
 
 ```
+
+### Multiple files and directories;
+
+```
+
+```
+mv fr.dat sr.dat analyzed/
