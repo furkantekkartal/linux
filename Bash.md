@@ -39,8 +39,10 @@ Tab completion
   "ls nor" + press tab => "ls north-pacific-gyre/"
   double tab => list all items in that directory
   "ls north-pacific-gyre/g" + press tab => "ls north-pacific-gyre/goo"
-  double tab => list all item begins with goo 
+  double tab => list all item begins with goo
 
+mkdir thesis (crete a new directory named "thesis" in this directory ~/Desktop/shell-lesson-data/exercise-data/writing)
+mkdir -p ../project/furkan ../project/tekkartal (crete 2 new directories named "furkan" and "tekkartal' in this directory ~/Desktop/shell-lesson-data/exercise-data/project)
 
 ```
 
