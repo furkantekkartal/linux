@@ -63,7 +63,7 @@ touch my_file.txt (generate a blank text file)
 rm my_file.txt (remove the file)
 ```
 
-### move and copy;
+### Move and copy;
 ```
 mv thesis/draft.txt thesis/quotes.txt (The first argument tells mv what we’re ‘moving’, while the second is where it’s to go)
 
@@ -93,5 +93,10 @@ An example of copying;
   cd ../
   ls -a furkan     => . .. a.txt
   ls -a tekkartal  => . .. a.txt b.txt
+
+pwd => ~/Desktop/shell-lesson-data/exercise-data/writing
+cp quotes.txt thesis/quotations.txt (copy a single file)
+cp -r thesis thesis_backup (copy all content)
+
 
 ```
