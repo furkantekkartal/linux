@@ -50,7 +50,23 @@ pwd => /home/ftekkartal/Desktop/shell-lesson-data/exercise-data/writing
 cd thesis
 nano draft.txt (create a new text file)
 touch my_file.txt (generate a blank text file)
+rm my_file.txt (remove the file)
+
+mv thesis/draft.txt thesis/quotes.txt (The first argument tells mv what we’re ‘moving’, while the second is where it’s to go)
+
+pwd => ~/Desktop/shell-lesson-data/exercise-data/writing
+mv thesis/quotes.txt . (move file from /exercise-data/writing/thesis to /exercise-data/writing)
+
+An example of moving;
+  pwd => ~/Desktop/shell-lesson-data/exercise-data/writing
+  ls -a furkan     => . .. a.txt b.txt
+  ls -a tekkartal  => . ..
+
+  cd furkan
+  mv a.txt b.txt ../tekkartal
+
+  cd ../
+  ls -a furkan     => . .. 
+  ls -a tekkartal  => . .. a.txt b.txt
 
 ```
-
-
