@@ -4,10 +4,10 @@
 
 ### Basic commands
 
-"*" is joker character zero or more character
-"?" is joker character only 1 character
-Control key may be described in many ways, including Ctrl-X, Control-X, and ^X.
-The shell does not have a trash bin: once something is deleted, 
+* "*" is joker character zero or more character
+* "?" is joker character only 1 character
+* Control key may be described in many ways, including Ctrl-X, Control-X, and ^X.
+* The shell does not have a trash bin: once something is deleted, 
 
 ```
 whoami (Return username)
@@ -55,10 +55,10 @@ cd - (go to previous directory)
 ```
 
 ### Create and delete files and directories;
-mkdir [path] creates a new directory.
-mkdir -p [path]  creates any intermediate subdirectories as required.
-rm [path] removes (deletes) a file.
-rm -r [path] removes (deletes) a directory.
+* mkdir [path] creates a new directory.
+* mkdir -p [path]  creates any intermediate subdirectories as required.
+* rm [path] removes (deletes) a file.
+* rm -r [path] removes (deletes) a directory.
 
 ```
 pwd => /home/ftekkartal/Desktop/shell-lesson-data/exercise-data/writing
@@ -80,8 +80,8 @@ rm -r -i thesis (remove the directory)
 
 ### Move and copy;
 
-*mv [old] [new] moves (renames) a file or directory.
-*cp [old] [new] copies a file.
+* mv [old] [new] moves (renames) a file or directory.
+* cp [old] [new] copies a file.
 
 ```
 mv thesis/draft.txt thesis/quotes.txt (The first argument tells mv what we’re ‘moving’, while the second is where it’s to go)
@@ -122,9 +122,8 @@ cp -r thesis thesis_backup (copy all content)
 
 ```
 
-### Multiple files and directories;
+### xxxxxxxx;
 
 ```
 
 ```
-mv fr.dat sr.dat analyzed/
