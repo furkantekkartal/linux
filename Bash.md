@@ -34,15 +34,22 @@ cd /home/ftekkartal/Desktop/shell-lesson-data (absolute path)
 cd ~/Desktop/shell-lesson-data (~ means /home/ftekkartal)
 cd - (go to previous directory)
 
-Tab completion
+Tab completion;
   cd ~/Desktop/shell-lesson-data
   "ls nor" + press tab => "ls north-pacific-gyre/"
   double tab => list all items in that directory
   "ls north-pacific-gyre/g" + press tab => "ls north-pacific-gyre/goo"
   double tab => list all item begins with goo
 
-mkdir thesis (crete a new directory named "thesis" in this directory ~/Desktop/shell-lesson-data/exercise-data/writing)
-mkdir -p ../project/furkan ../project/tekkartal (crete 2 new directories named "furkan" and "tekkartal' in this directory ~/Desktop/shell-lesson-data/exercise-data/project)
+pwd => /home/ftekkartal/Desktop/shell-lesson-data/exercise-data/writing
+  mkdir thesis (crete a new directory named "thesis" in this directory ~/Desktop/shell-lesson-data/exercise-data/writing)
+  mkdir -p ../project/furkan ../project/tekkartal (crete 2 new directories named "furkan" and "tekkartal' in this directory ~/Desktop/shell-lesson-data/exercise-data/project)
+
+  ls -R ../project (List all nested subdirectories)
+
+cd thesis
+nano draft.txt (create a new text file)
+touch my_file.txt (generate a blank text file)
 
 ```
 
