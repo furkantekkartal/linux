@@ -128,7 +128,7 @@ wc -m *txt (character number + file name)
 wc -w *txt (word number + file name)
 ```
 
-### Other commands (cat + less + sort + head + tail + echo)
+### Other commands (cat + less + sort + head + tail + echo + cut)
 
 *This codes are not change the file, just affect on the screen
 
@@ -155,6 +155,17 @@ tail -n 1 number.txt (take 1 line from bottom)
 echo The echo command prints text
 ```
 
+```
+cut -d , -f 2 animals.csv
+
+  * cut means remove or ‘cut out’
+  *  -d means use delimiter (if we not use -d parameter, standart delimiter would be TAB)
+  *   , means komma will be used as delimiter
+  *  -f means column
+  *   2 means 2nd column
+```
+
+
 ### To the file
 
 ">" =  overwritte the file
@@ -179,7 +190,7 @@ cat testfile02.txt
 
 ### Pipes and Filters
 * Use "|" sybol to run more than 1 command.
-* left command`s output will be right command`s input and so on.
+* Left command's output will be right command's input.
 
 For example;
 ![computer information](./images/2024-02-01_01-24-35.png)
@@ -194,6 +205,7 @@ cat animals.csv | head -n 5 | tail -n 3 | sort -r > final.txt
          * Reverse alphabetical sort the newer list BUT THEN
             * Write it to final.txt
 
-```
 
-```
+
+
+
