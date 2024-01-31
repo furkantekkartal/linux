@@ -1,6 +1,6 @@
 # Bash | Command Line Interface (CLI) command in the learning process
 
-## 1. General Codes
+## General Codes
 
 ### Basic commands
 
@@ -119,10 +119,70 @@ cp quotes.txt thesis/quotations.txt (copy a single file)
 cp -r thesis thesis_backup (copy all content)
 
 * cp needs directory name as the last argument.
-
+```
+### Word count
+```
+wc *.txt (word count | 4 column = line + character + words + file name)
+wc -l *txt (line number + file name)
+wc -m *txt (character number + file name)
+wc -w *txt (word number + file name)
 ```
 
-### xxxxxxxx;
+### Other commands (cat + less + sort + head + tail + echo)
+
+*This codes are not change the file, just affect on the screen
+
+```
+cat lengths.txt (concatenate(join together) files and show on screen)
+```
+```
+less lengths.txt  (same as cat bur list only a screenful of the file (like first page))
+    (Space -> next page)
+    (b -> back pace)
+    (q -> quit) 
+```
+```
+sort number.txt (sort alphanumerical)
+sort -n number.txt (sort numerical)
+```
+```
+head -n 1 number.txt (bastan 1 satir al)
+```
+```
+tail -n 1 number.txt (sondan 1 satir al)
+```
+```
+echo The echo command prints text
+```
+
+### To the file
+
+">" =  overwritte the file
+
+```
+echo hello > testfile01.txt
+echo world > testfile01.txt
+
+cat testfile01.txt
+    Output: world
+```
+
+">>" = add new line to the file
+```
+echo hello >> testfile02.txt
+echo world >> testfile02.txt
+
+cat testfile02.txt
+    Output:  hello
+             world
+```
+
+### Pipes and Filters
+
+wc -l *.pdb | sort -n | head -n 1
+
+![computer information](./images/2024-02-01_01-24-35.png)
+
 
 ```
 
