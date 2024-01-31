@@ -146,10 +146,10 @@ sort number.txt (sort alphanumerical)
 sort -n number.txt (sort numerical)
 ```
 ```
-head -n 1 number.txt (bastan 1 satir al)
+head -n 1 number.txt (take 1 line from top)
 ```
 ```
-tail -n 1 number.txt (sondan 1 satir al)
+tail -n 1 number.txt (take 1 line from bottom)
 ```
 ```
 echo The echo command prints text
@@ -183,6 +183,13 @@ wc -l *.pdb | sort -n | head -n 1
 
 ![computer information](./images/2024-02-01_01-24-35.png)
 
+cat animals.csv | head -n 5 | tail -n 3 | sort -r > final.txt
+
+  * (show animals.csv on the screen BUT THEN
+    * Take first 5 line of the list BUT THEN
+      * Take last 3 line of the new list BUT THEN
+         * Reverse alphabetical sort the newer list BUT THEN
+            * Write it to final.txt)
 
 ```
 
