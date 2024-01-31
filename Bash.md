@@ -216,10 +216,10 @@ For example;
 ```
 cat animals.csv | head -n 5 | tail -n 3 | sort -r > final.txt
 ```
-  * show animals.csv on the screen BUT THEN
-    * Take first 5 line of the list BUT THEN
-      * Take last 3 line of the new list BUT THEN
-         * Reverse alphabetical sort the newer list BUT THEN
+  * show animals.csv on the screen THEN
+    * Take first 5 line of the list THEN
+      * Take last 3 line of the new list THEN
+         * Reverse alphabetical sort the newer list THEN
             * Write it to final.txt
 
 
