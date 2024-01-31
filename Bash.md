@@ -9,7 +9,7 @@
 * Control key may be described in many ways, including Ctrl-X, Control-X, and ^X.
 * The shell does not have a trash bin: once something is deleted, 
 
-```
+```^[[200~
 whoami (Return username)
 pwd (print working directory)
 clear (delete everything on screen)
@@ -121,6 +121,9 @@ cp -r thesis thesis_backup (copy all content)
 * cp needs directory name as the last argument.
 ```
 ### Word count
+
+* wc counts lines, words, and characters in its inputs.
+
 ```
 wc *.txt (word count | 4 column = line + character + words + file name)
 wc -l *txt (line number + file name)
@@ -130,7 +133,11 @@ wc -w *txt (word number + file name)
 
 ### Other commands (cat + less + sort + head + tail + echo + cut)
 
-*This codes are not change the file, just affect on the screen
+* This codes are not change the file, just affect on the screen
+* cat displays the contents of its inputs.
+* sort sorts its inputs.
+* head displays the first 10 lines of its input.
+* tail displays the last 10 lines of its input.
 
 ```
 cat lengths.txt (concatenate(join together) files and show on screen)
@@ -156,17 +163,25 @@ echo The echo command prints text
 ```
 
 ```
-cut -d , -f 2 animals.csv
+cut -d , -f 2 animals.csv | sort | uniq -c
 
-  * cut means remove or ‘cut out’
-  *  -d means use delimiter (if we not use -d parameter, standart delimiter would be TAB)
-  *   , means komma will be used as delimiter
-  *  -f means column
-  *   2 means 2nd column
+  * cut  means remove or ‘cut out’
+  *  -d  means use delimiter (if we not use -d parameter, standart delimiter would be TAB)
+  *   ,  means komma will be used as delimiter (-d, us fine no need space)
+  *  -f  means column (-f2 is fine no need space)
+  *   2  means 2nd column
+  * sort means sort alphabetic
+  * unic means don't show repeated lines
+  *   -c means show how mant repeated lines
+
+  *Note: "unic" command must be used with "sort" command.
 ```
 
 
 ### To the file
+
+*  " > [file] " redirects a command’s output to a file (overwriting any existing content).
+*  " >> [file] " appends a command’s output to a file.
 
 ">" =  overwritte the file
 
@@ -189,8 +204,10 @@ cat testfile02.txt
 ```
 
 ### Pipes and Filters
-* Use "|" sybol to run more than 1 command.
+* [first] | [second] is a pipeline: the output of the first command is used as the input to the second.
+* Use " | " sybol to run more than 1 command.
 * Left command's output will be right command's input.
+* The best way to use the shell is to use pipes to combine simple single-purpose programs (filters).
 
 For example;
 ![computer information](./images/2024-02-01_01-24-35.png)
