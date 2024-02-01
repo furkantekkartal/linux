@@ -7,7 +7,10 @@
 * "*" is joker character zero or more character
 * "?" is joker character only 1 character
 * Control key may be described in many ways, including Ctrl-X, Control-X, and ^X.
-* The shell does not have a trash bin: once something is deleted, 
+* The shell does not have a trash bin: once something is deleted.
+* Ctrl + c kills the running code
+* Ctrl + a move to the beginning of a line
+* Ctrl + e move to the end of a line 
 
 ```^[[200~
 whoami (Return username)
@@ -223,6 +226,115 @@ cat animals.csv | head -n 5 | tail -n 3 | sort -r > final.txt
             * Write it to final.txt
 
 
+### Loops
+* A for loop repeats commands once for every thing in a list.
+* Every for loop needs a variable to refer to the thing it is currently operating on.
+* Use $name to expand a variable (i.e., get its value). ${name} can also be used.
+* Do not use spaces, quotes, or wildcard characters such as ‘*’ or ‘?’ in filenames
+  
+```
+for loop_variable in 0 1 2 3 4 5 6 7 8 9
+> do
+>     echo $loop_variable
+> done
+```
 
+Saving to a file;
+```
+for alkanes in *.pdb
+do
+    echo $alkanes
+    cat $alkanes > alkanes.pdb (All of the names would be showed on screen. All only last one concatenated and saved to a file called all.pdb)
+done
+```
+```
+for datafile in *.pdb
+do
+    cat $datafile >> all.pdb (All of the names would be showed on screen. All texts in files concatenated and saved to a file called all.pdb)
+done
+```
 
+if space in names;
 
+```
+for filename in "red dragon.dat" "purple unicorn.dat"
+do
+head -n 100 "$filename" | tail -n 20
+done
+```
+
+Filter the input files;
+```
+for datafile in NENE*A.txt NENE*B.txt
+do
+    echo $datafile stats-$datafile
+done
+```
+
+bash command;
+```
+for datafile in NENE*A.txt NENE*B.txt
+do
+    echo $datafile (print each file on screen)
+    bash goostats.sh $datafile stats-$datafile (run the goostats.sh program which needs 2 argumant (inputfile and outputfile)
+done
+```
+
+Always check your code before running. 
+  * Write "echo $datafile" to watch variables while your code is working.
+  * Write critical action commands in (echo " ... ") stracture,
+  * if seems well, release your action code by deleting (echo "") stracture
+  * and run it.
+
+For example;
+```
+-First run;
+for datafile in *.pdb
+do
+    echo $datafile
+    echo "cat $datafile >> all.pdb"
+done
+
+-Second run;
+for datafile in *.pdb
+do
+    echo $datafile
+    cat $datafile >> all.pdb
+done
+```
+
+Nested loops;
+```
+for species in cubane ethane methane
+do
+    for temperature in 25 30 37 40
+    do
+        mkdir $species-$temperature
+    done
+done
+```
+
+History commands;
+
+```
+history | tail -n 5 (list the least 5 commands)
+```
+
+```
+Output would be like;
+
+456  for datafile in NENE*A.txt NENE*B.txt; do   echo $datafile stats-$datafile; done
+457  cd ..
+458  for datafile in NENE*A.txt NENE*B.txt; do bash goostats.sh $datafile stats-$datafile; done
+459  ls
+460  history | tail -n 5
+
+just write !458 and press enter to run 458. command on the history.
+```
+
+Anoter history command;
+* Use Ctrl+R to search through the previously entered commands.
+* There are a number of other shortcut commands for getting at the history.
+* Ctrl+R enters a history search mode ‘reverse-i-search’ and finds the most recent command in your history that matches the text you enter next. Press Ctrl+R one or more additional times to search for earlier matches. You can then use the left and right arrow keys to choose that line and edit it then hit Return to run the command.
+* !! retrieves the immediately preceding command (you may or may not find this more convenient than using ↑)
+* !$ retrieves the last word of the last command. That’s useful more often than you might expect: after bash goostats.sh NENE01729B.txt stats-NENE01729B.txt, you can type less !$ to look at the file stats-NENE01729B.txt, which is quicker than doing ↑ and editing the command-line.
