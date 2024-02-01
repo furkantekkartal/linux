@@ -312,6 +312,13 @@ do
         mkdir $species-$temperature
     done
 done
+
+ls command would be like;
+
+cubane-25  cubane-30  cubane-37  cubane-40  
+ethane-25  ethane-30  ethane-37  ethane-40  
+methane-25  methane-30  methane-37  methane-40  
+
 ```
 
 History commands;
