@@ -2,7 +2,7 @@
 
 ## General Codes
 
-### Basic commands
+### Basic info and commands
 
 * "*" is joker character zero or more character
 * "?" is joker character only 1 character
@@ -45,6 +45,7 @@ cd .. (go to one level up)
 cd (go to home directory)
 cd /home/ftekkartal/Desktop/shell-lesson-data (absolute path)
 cd ~/Desktop/shell-lesson-data (~ means /home/ftekkartal)
+cd ../../north-pacific-gyre/ (relative path: 2 times up, 1 step down(pwd=shell-lesson-data/exercise-data/alkanes))
 cd - (go to previous directory)
 ```
 
@@ -123,7 +124,7 @@ cp -r thesis thesis_backup (copy all content)
 
 * cp needs directory name as the last argument.
 ```
-### Word count
+### Word countd 
 
 * wc counts lines, words, and characters in its inputs.
 
@@ -345,3 +346,104 @@ Anoter history command;
 * Ctrl+R enters a history search mode ‘reverse-i-search’ and finds the most recent command in your history that matches the text you enter next. Press Ctrl+R one or more additional times to search for earlier matches. You can then use the left and right arrow keys to choose that line and edit it then hit Return to run the command.
 * !! retrieves the immediately preceding command (you may or may not find this more convenient than using ↑)
 * !$ retrieves the last word of the last command. That’s useful more often than you might expect: after bash goostats.sh NENE01729B.txt stats-NENE01729B.txt, you can type less !$ to look at the file stats-NENE01729B.txt, which is quicker than doing ↑ and editing the command-line.
+
+
+### Shell Scripts
+
+Example 1:
+```
+nano middle.sh (Create a shell script (small program) in text editor.)
+```
+
+```
+# Select lines from the middle of a file.
+# Script (program) need 3 parameter:
+#   1: filename with file format
+#   2: how many lines from top
+#   3: how many lines from bottom
+# Usage: bash middle.sh filename end_line num_lines
+head -n "$2" "$1" | tail -n "$3"
+```
+
+```
+bash middle.sh pentane.pdb 20 5
+```
+
+Output;
+```
+ATOM     14  H           1      -1.259   1.420   0.112  1.00  0.00
+ATOM     15  H           1      -2.608  -0.407   1.130  1.00  0.00
+ATOM     16  H           1      -2.540  -1.303  -0.404  1.00  0.00
+ATOM     17  H           1      -3.393   0.254  -0.321  1.00  0.00
+TER      18              1
+```
+
+Example 2:
+```
+# Sort files by their length.
+# Usage: bash sorted.sh one_or_more_filenames
+wc -l "$@" | sort -n
+```
+```
+bash sorted.sh *.pdb ../creatures/*.dat
+```
+
+Example 3:
+```
+# Script to find unique species in csv files where species is the second data field
+# This script accepts any number of file names as command line arguments
+
+# Loop over all files
+for file in $@
+do
+    echo "Unique species in $file:"
+    # Extract species names
+    cut -d , -f 2 $file | sort | uniq
+done
+```
+
+Example 4:
+we can save previous commands to a file with this command. we can re-call this codes in our script later. 
+```
+history | tail -n 5 > recent.sh
+
+```
+In practice, most people develop shell scripts by running commands at the shell prompt a few times to make sure they’re doing the right thing, then saving them in a file for re-use. This style of work allows people to recycle what they discover about their data and their workflow with one call to history and a bit of editing to clean up the output and save it as a shell script.
+
+Example 5:
+```
+# Calculate stats for data files.
+for datafile in "$@"
+do
+    echo $datafile
+    bash goostats.sh $datafile stats-$datafile
+done
+```
+```
+bash do-stats.sh NENE*A.txt NENE*B.txt
+```
+```
+bash do-stats.sh NENE*A.txt NENE*B.txt | wc -l
+```
+
+Example 6:
+we can specify the files:
+```
+# Calculate stats for Site A and Site B data files.
+for datafile in NENE*A.txt NENE*B.txt
+do
+    echo $datafile
+    bash goostats.sh $datafile stats-$datafile
+done
+```
+
+Exmple 7:
+```
+# Shell script which takes two arguments:
+#    1. a directory name
+#    2. a file extension
+# and prints the name of the file in that directory
+# with the most lines which matches the file extension.
+
+wc -l $1/*.$2 | sort -n | tail -n 2 | head -n 1
+```
