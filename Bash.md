@@ -36,17 +36,19 @@ ls --help (We can pass a --help option to any command)
 man ls (We can read its manual with man)
 ```
 
-### cd commands
+### cd commands (Change directory)
 
 ```
-cd Desktop (Change directory)
-cd Desktop/shell-lesson-data
-cd .. (go to one level up)
 cd (go to home directory)
-cd /home/ftekkartal/Desktop/shell-lesson-data (absolute path)
-cd ~/Desktop/shell-lesson-data (~ means /home/ftekkartal)
-cd ../../north-pacific-gyre/ (relative path: 2 times up, 1 step down(pwd=shell-lesson-data/exercise-data/alkanes))
+cd .. (go to one level up)
 cd - (go to previous directory)
+
+cd Desktop
+cd Desktop/shell-lesson-data
+
+cd ~/Desktop/shell-lesson-data (~ means /home/ftekkartal)
+cd /home/ftekkartal/Desktop/shell-lesson-data (absolute path)
+cd ../../north-pacific-gyre/ (relative path: 2 times up, 1 step down(pwd=shell-lesson-data/exercise-data/alkanes))
 ```
 
 ### Tab completion;
@@ -350,6 +352,14 @@ Anoter history command;
 
 ### Shell Scripts
 
+* Save commands in files (usually called shell scripts) for re-use.
+* bash [filename] [param1] [param2] [param...] runs the commands saved in a file.
+* $@ refers to all of a shell script’s command-line arguments.
+* $1, $2, etc., refer to the first command-line argument, the second command-line argument, etc.
+* Place variables in quotes if the values might have spaces in them.
+* Letting users decide what files to process is more flexible and more consistent with built-in Unix commands.
+
+
 Example 1:
 ```
 nano middle.sh (Create a shell script (small program) in text editor.)
@@ -446,4 +456,31 @@ Exmple 7:
 # with the most lines which matches the file extension.
 
 wc -l $1/*.$2 | sort -n | tail -n 2 | head -n 1
+```
+
+Example 8: DEBUGGING SCRIPTS
+
+Let`s say we made a typo mistake like that;
+```
+# Calculate stats for data files.
+for datafile in "$@"
+do
+    echo $datfile (must be $datafile)
+    bash goostats.sh $datafile stats-$datafile
+done
+```
+
+this code does not work properly;
+```
+$ bash do-errors.sh NENE*A.txt NENE*B.txt
+```
+
+We can run this code. 
+The -x option causes bash to run in debug mode. 
+This prints out each command as it is run, which will help you to locate errors. 
+
+In this example, we can see that echo isn’t printing anything. 
+We have made a typo in the loop variable name, and the variable datfile doesn’t exist, hence returning an empty string.
+```
+$ bash -x do-errors.sh NENE*A.txt NENE*B.txt
 ```
