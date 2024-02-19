@@ -10,7 +10,9 @@
 * The shell does not have a trash bin: once something is deleted.
 * Ctrl + c kills the running code
 * Ctrl + a move to the beginning of a line
-* Ctrl + e move to the end of a line 
+* Ctrl + e move to the end of a line
+* Ctrl + Shift + c : copy (in terminal screen)
+* Ctrl + Shift + v : paste (in terminal screen)
 
 ```^[[200~
 whoami (Return username)
