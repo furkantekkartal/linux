@@ -362,6 +362,7 @@ Anoter history command;
 
 Example 1:
 ```
+cd alkanes
 nano middle.sh (Create a shell script (small program) in text editor.)
 ```
 
